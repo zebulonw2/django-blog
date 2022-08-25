@@ -2,15 +2,19 @@
 {% block content %}
 <a class="backlink" href="/">Home</a>
 <h1>{{ post }}</h1>
-<p class="byline">
-   Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
-</p>
 <div class="post-body">
    {{ post.text }}
 </div>
-<ul class="categories">
+<h6>
+   <u>Categories:</u>
    {% for category in post.categories.all %}
-   <li>{{ category }}</li>
+   {% if forloop.last %}
+   {{ category }}
+   {% else %}
+   {{ category }},
+   {% endif %}
    {% endfor %}
-</ul>
+</h6>
+<p class="byline">
+<h6><u>Posted By:</u> {{ post.author.username }} &mdash; {{ post.published_date }} </h6>
 {% endblock %}

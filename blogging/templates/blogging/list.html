@@ -7,16 +7,17 @@
       <a href="{% url 'blog_detail' post.pk %}">{{ post }}</a>
    </h2>
    <p class="byline">
-      Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
-   </p>
-   <div class="post-body">
-      {{ post.text }}
-   </div>
-   <ul class="categories">
-      {% for category in post.categories.all %}
-      <li>{{ category }}</li>
-      {% endfor %}
-   </ul>
+   <h6>
+      <u>Posted by: </u> {{ post.author.username }} &mdash; {{post.published_date }}
+   </h6>
 </div>
 {% endfor %}
 {% endblock %}
+<!--   <div class="post-body">-->
+<!--      {{ post.text }}-->
+<!--   </div>-->
+<!--   <ul class="categories">-->
+<!--      {% for category in post.categories.all %}-->
+<!--      <li>{{ category }}</li>-->
+<!--      {% endfor %}-->
+<!--   </ul>-->
