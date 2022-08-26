@@ -3,7 +3,7 @@ from blogging.models import Post, Category
 
 
 class CategoryInLine(admin.TabularInline):
-    model = Post.categories.through
+    model = Category.posts.through
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -16,7 +16,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('posts', )
 
 
 admin.site.register(Post, PostAdmin)
