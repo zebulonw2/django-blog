@@ -4,5 +4,7 @@ python:
 install:
   - pip install -r requirements.txt
   - python manage.py migrate
+env:
+  - DJANGO_SETTINGS_MODULE="mysite.settings"
 script:
   - python manage.py test
