@@ -11,3 +11,6 @@ class PostList(ListView):
 class PostDetail(DetailView):
     model = Post
     template_name = "blogging/detail.html"
+
+    def get_queryset(self):
+        return Post.objects.exclude(published_date__exact=None)
