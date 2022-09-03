@@ -7,4 +7,5 @@ install:
 env:
   - DJANGO_SETTINGS_MODULE="mysite.settings"
 script:
+  - black --check blogging mysite polling
   - python manage.py test
