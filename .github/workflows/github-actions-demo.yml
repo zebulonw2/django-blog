@@ -24,6 +24,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Format With Black
+      run: |
+        black --check blogging mysite polling
     - name: Run Tests
       run: |
         python manage.py test
