@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="backlink" href="/">Home</a>
+<h1>{{ object }}</h1>
+<div class="post-body">
+   {{ object.text }}
+</div>
+<h6>
+   <u>Categories:</u>
+   {% for category in object.categories.all %}
+   {% if forloop.last %}
+   {{ category }}
+   {% else %}
+   {{ category }},
+   {% endif %}
+   {% endfor %}
+</h6>
+<p class="byline">
+<h6><u>Posted By:</u> {{ object.author.username }} &mdash; {{ object.published_date }}
+</h6>
+{% endblock %}
