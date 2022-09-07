@@ -23,5 +23,5 @@ def add_post(request):
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-    context['form'] = form
+    context["form"] = form
     return render(request, "blogging/add.html", context)
