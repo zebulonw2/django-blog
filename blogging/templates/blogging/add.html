@@ -7,8 +7,10 @@
   <body>
     <div id="header">
       <ul id="control-bar">
-        <li>Hello fix-this </li> <!--todo change fix-this to user-->
-          <li><a href="/logout/">logout</a></li>
+        {% if user.is_authenticated %}
+        <li>Welcome, {{ user.get_username }}</li>
+        {% endif %}
+        <li><a href="/logout/">logout</a></li>
       </ul>
      </div>
     <div id="container">

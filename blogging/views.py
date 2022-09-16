@@ -1,4 +1,4 @@
-from blogging.models import Post
+from .models import Post
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .forms import PostForm
@@ -19,11 +19,9 @@ class PostDetail(DetailView):
         return Post.objects.exclude(published_date__exact=None)
 
 
-@csrf_protect
 def add_post(request):
     context = {}
-    form = PostForm(request.POST or None, request.FILES or None)
-    # form = PostForm(request.POST)
+    form = PostForm(request.POST)
     if form.is_valid():
         form.save()
     context["form"] = form
