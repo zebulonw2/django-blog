@@ -19,10 +19,11 @@ class PostDetail(DetailView):
         return Post.objects.exclude(published_date__exact=None)
 
 
+@csrf_protect
 def add_post(request):
     context = {}
     form = PostForm(request.POST)
     if form.is_valid():
         form.save()
     context["form"] = form
-    return render(request, "blogging/add.html", context)
+    return render(request, "blogging/add.html", None)
