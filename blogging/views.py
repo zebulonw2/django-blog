@@ -21,7 +21,7 @@ class PostDetail(DetailView):
 def add_post(request):
     context = {}
     form = PostForm(request.POST)
-    if request.method == 'POST':
+    if request.method == "POST":
         if form.is_valid():
             form.save()
             return redirect("blog_index")
@@ -29,5 +29,3 @@ def add_post(request):
             print(form.errors)
     context["form"] = form
     return render(request, "blogging/add.html", context)
-
-
