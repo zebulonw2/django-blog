@@ -20,7 +20,7 @@ jobs:
         pip install -r requirements.txt
     - name: Format With Black
       run: |
-        black --check blogging mysite polling
+        black blogging mysite polling
     - name: Run Tests
       run: |
         python manage.py test
